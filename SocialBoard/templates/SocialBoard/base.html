@@ -10,7 +10,6 @@
 </head>
 <body>
 <div>
-
 {% if user.is_authenticated %}
 
 {{ user }}
@@ -22,9 +21,7 @@
 
 {% endif %}
 </div>
-
 {% block content %}
-{% if user.is_authenticated %}
 
 {% for p in posts %}
 <ul>
@@ -34,7 +31,8 @@
     <li>{{p.post_author}}</li>
 </ul>
 {% endfor %}
-{% endif %}
+
 {% endblock %}
 </body>
 </html>
+
