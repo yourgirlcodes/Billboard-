@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Billboard Application</title>
+<!--    <link rel="stylesheet" href="styles.css">-->
+
+</head>
+
+<body>
+
+<div>
+
+{% for p in posts %}
+<ul>
+    <li>{{p.post_title}}</li>
+    <li>{{p.post_content}}</li>
+    <li> {{p.post_publish_date}}</li>
+    <li>{{p.post_author}}</li>
+</ul>
+{% endfor %}
+
+</div>
+
+</body>
+
+</html>
+
