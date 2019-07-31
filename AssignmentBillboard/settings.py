@@ -123,5 +123,6 @@ STATIC_URL = '/static/'
 LOGIN_URL = 'SocialBoard/login/'
 LOGOUT_URL = 'SocialBoard/logout/'
 LOGIN_REDIRECT_URL = '/SocialBoard/'
+LOGOUT_REDIRECT_URL = '/'
 
 
