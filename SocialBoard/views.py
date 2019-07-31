@@ -1,10 +1,13 @@
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
+from django.utils import timezone
+
 from .models import Post
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_protect
 
 
 @login_required
@@ -32,6 +35,13 @@ def logout(request):
     return render(request, "registration/logout.html")
 
 
-# def login(request):
-#     return render(request, "registration/login.html")
-#
+@csrf_protect
+def newpost(request):
+    content = request.POST.get("content")
+    title = request.POST.get("title")
+    author = request.POST.get("author")
+    post = Post.objects.create(post_title=title, post_publish_date=timezone.now(), post_author=author, post_content=content)
+    posts = Post.objects.all()
+    return render(request, 'SocialBoard/newpost.html', {'posts': posts})
+
+

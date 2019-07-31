@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Billboard</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'SocialBoard/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'SocialBoard/css/style.css' %}">
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/contacts.js' %}"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="{% static 'SocialBoard/js/app.js' %}"></script>
 </head>
 
 <body>
@@ -26,19 +26,59 @@
         {% endif %}
     </div>
 
+
     {% block content %}
+
     {% if user.is_authenticated %}
 
-    {% for p in posts %}
-    <ul>
-        <li>{{p.post_title}}</li>
-        <li>{{p.post_content}}</li>
-        <li> {{p.post_publish_date}}</li>
-        <li>{{p.post_author}}</li>
-    </ul>
-    {% endfor %}
+    {% if posts %}
+
+{% for p in posts %}
+        <div class="posts">
+            <ul>
+                <li>{{p.post_title}}</li>
+                <li>{{p.post_content}}</li>
+                <li> {{p.post_publish_date}}</li>
+                <li>{{p.post_author}}</li>
+            </ul>
+        </div>
+{% endfor %}
+
+    {% else %}
+
+    <div> Sorry, no posts here! Click the '+' button to add a new post!</div>
+
+
     {% endif %}
+
+
+    <div id="ask_to_add">+</div>
+
+
+    <fieldset class="new_post" id="newpostform" display="none">
+        <legend>
+            <p class="postdate" id="date">TODAY</p>
+        </legend>
+
+        <form action="/newpost" method="post">
+            {% csrf_token %}
+        <input type="text" name="title" id="title" value="title" placeholder="Title">
+        <textarea rows="7" name="content" id="content" value="content" placeholder="Your post here..."></textarea>
+        <input type="text" name="author" id="author" value="author" placeholder="Author"><input type="submit" value="submit"/>
+        </form>
+    </fieldset>
+
+
+    <div class="addnewpost">
+        <i class="fa fa-times" id='close'></i>
+        <i class="fa fa-check" id='addpost'></i>
+    </div>
+    </div>
+
+    {% endif %}
+
     {% endblock %}
+    <script src="{% static 'SocialBoard/js/app.js' %}"></script>
 </body>
 
 </html>

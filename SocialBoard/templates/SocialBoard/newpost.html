@@ -1,0 +1,16 @@
+{% extends 'SocialBoard/index.html' %}
+
+{% block posting %}
+
+{% for p in posts %}
+        <div class="posts">
+            <ul>
+                <li>{{p.post_title}}</li>
+                <li>{{p.post_content}}</li>
+                <li> {{p.post_publish_date}}</li>
+                <li>{{p.post_author}}</li>
+            </ul>
+        </div>
+{% endfor %}
+
+{% endblock %}
