@@ -7,22 +7,22 @@ $(document).ready(function () {
         $("#newpostform").css("display", "none");
     })
 
-//    $("#addpost").click(function () {
-//        $.ajax("/SocialBoard", {
-//            type: "POST",
-//            data: {
-//                "content": $("#newcontent").val(),
-//                "title": $("#newtitle").val(),
-//                "author": $("#newauthor").val()
-//            },
-//            success: function (data) {
-//                $("#posts").html(data + $("#posts").html())
-//                $("#newtext").val(""),
-//                $("#newtitle").val(""),
-//                $("#newauthor").val("");
-//            }
-//        })
-//    });
+    //    $("#addpost").click(function () {
+    //        $.ajax("/SocialBoard", {
+    //            type: "POST",
+    //            data: {
+    //                "content": $("#newcontent").val(),
+    //                "title": $("#newtitle").val(),
+    //                "author": $("#newauthor").val()
+    //            },
+    //            success: function (data) {
+    //                $("#posts").html(data + $("#posts").html())
+    //                $("#newtext").val(""),
+    //                $("#newtitle").val(""),
+    //                $("#newauthor").val("");
+    //            }
+    //        })
+    //    });
 
 
 
