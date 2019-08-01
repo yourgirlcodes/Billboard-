@@ -1,4 +1,5 @@
 {% load static %}
+
 <html lang="en">
 
 <head>
@@ -19,9 +20,9 @@
     {% block content %}
     {% if user.is_authenticated %}
 
-    {{ user }}
+    <p id="greeting"> Hello {{ user }} </p>
 
-    <a href="{% url 'logout' %}">Logout</a>
+    <p id="logout-tab"><a href="{% url 'logout' %}">Logout</a></p>
 
     {% if posts %}
 
@@ -37,7 +38,7 @@
     {% endif %}
 
 
-        <div class="newpost_buttons" id="plus">
+        <div class="newpost_buttons beat" id="plus">
             <i id="ask_to_add">+</i>
         </div>
 
@@ -50,15 +51,16 @@
                         <p class="postdate" id="date">TODAY</p>
                     </legend>
                     {% csrf_token %}
-                    <input type="text" name="title" id="title" value="title" placeholder="Title">
+                    <div><input type="text" name="title" id="title"  placeholder="Title" required></div>
                     <textarea rows="7" name="content" id="content" value="content"
-                        placeholder="Your post here..."></textarea>
-                    <input type="text" name="author" id="author" value="author" placeholder="Author">
-                    <div class="newpost_buttons">
-                        <i class="fa fa-times" id='close'></i>
-                        <input type="submit" class="fa fa-check" id='addpost' />
-                    </div>
+                        placeholder="Your post here..." required></textarea>
+                    <div><input type="text" name="author" id="author" placeholder="Author" required></div>
                 </fieldset>
+                        <div class="newpost_buttons">
+                        <div class="beat" id='close'><i class="fa fa-times" ></i></div>
+                        <button type="submit" class="beat" id='addpost'><i class="fa fa-check"></i></button>
+                    </div>
+
             </form>
 
         </div>

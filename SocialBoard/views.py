@@ -1,4 +1,4 @@
-from django.http import Http404, HttpResponseRedirect, JsonResponse
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.utils import timezone
@@ -28,7 +28,7 @@ def register(request):
             return HttpResponseRedirect(reverse('index'))
     else:
         form = UserCreationForm()
-    return render(request, "registration/register.html", {'form': form, })
+    return render(request, "registration/register.html", {'form': form })
 
 
 def logout(request):

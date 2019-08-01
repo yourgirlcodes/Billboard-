@@ -1,9 +1,7 @@
 {% extends 'SocialBoard/index.html' %}
 
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'SocialBoard/css/styles.css' %}">
-
 {% block content %}
+<div class="login">
 <div class="login_block">
     {% if form.errors %}
     <p>Username and password didn't match. Please try again.</p>
@@ -26,5 +24,6 @@
         <input type="hidden" name="next" value="{{ next }}" />
     </form>
 </div>
+    </div>
 
 {% endblock %}

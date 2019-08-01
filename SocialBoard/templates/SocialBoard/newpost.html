@@ -1,11 +1,9 @@
-
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'SocialBoard/css/styles.css' %}">
 
 {% for p in posts %}
 <fieldset class="posts">
     <legend>
-        <p class="postdate" id="date">{{p.post_publish_date}}</p>
+        <p class="postdate" id="date">{{p.post_publish_date|date:"d/m/Y"}}</p>
     </legend>
         <div class="post_title">{{p.post_title}}</div>
         <div class="post_content">{{p.post_content}}</div>
