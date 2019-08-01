@@ -1,21 +1,15 @@
-{% extends 'SocialBoard/index.html' %}
 
-
-{% block posting %}
-
-<div>Hello</div>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'SocialBoard/css/styles.css' %}">
 
 {% for p in posts %}
-<div class="posts">
+<fieldset class="posts">
     <legend>
         <p class="postdate" id="date">{{p.post_publish_date}}</p>
     </legend>
-    <ul>
-        <li>{{p.post_title}}</li>
-        <li>{{p.post_content}}</li>
-        <li>{{p.post_author}}</li>
-    </ul>
-</div>
-{% endfor %}
+        <div class="post_title">{{p.post_title}}</div>
+        <div class="post_content">{{p.post_content}}</div>
+        <div class="post_author">{{p.post_author}}</div>
 
-{% endblock %}
+</fieldset>
+{% endfor %}

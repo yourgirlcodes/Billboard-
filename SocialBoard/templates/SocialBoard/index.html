@@ -12,65 +12,62 @@
 </head>
 
 <body>
+<div class="centered-elements">
 
-<div id="BILLBOARD">BILLBOARD</div>
+    <div id="BILLBOARD">BILLBOARD</div>
 
     {% block content %}
-
     {% if user.is_authenticated %}
 
     {{ user }}
+
     <a href="{% url 'logout' %}">Logout</a>
 
     {% if posts %}
 
-    {% for p in posts %}
-<fieldset class="posts">
-    <legend>
-        <p class="postdate" id="date">{{p.post_publish_date}}</p>
-    </legend>
-        <div class="post_title">{{p.post_title}}</div>
-        <div class="post_content">{{p.post_content}}</div>
-        <div class="post_author">{{p.post_author}}</div>
 
-</fieldset>
-    {% endfor %}
+
+        {% include 'SocialBoard/newpost.html' %}
 
     {% else %}
 
-    <div> Sorry, no posts here! Click the '+' button to add a new post!</div>
+        <div> Sorry, no posts here! Click the '+' button to add a new post!</div>
 
 
     {% endif %}
 
 
-    <div id="ask_to_add">+</div>
+        <div class="newpost_buttons" id="plus">
+            <i id="ask_to_add">+</i>
+        </div>
+
+        <div id="newpostform">
+
+            <form action="/newpost" method="post">
+
+                <fieldset class="new_post">
+                    <legend>
+                        <p class="postdate" id="date">TODAY</p>
+                    </legend>
+                    {% csrf_token %}
+                    <input type="text" name="title" id="title" value="title" placeholder="Title">
+                    <textarea rows="7" name="content" id="content" value="content"
+                        placeholder="Your post here..."></textarea>
+                    <input type="text" name="author" id="author" value="author" placeholder="Author">
+                    <div class="newpost_buttons">
+                        <i class="fa fa-times" id='close'></i>
+                        <input type="submit" class="fa fa-check" id='addpost' />
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
 
 
-    <fieldset class="new_post" id="newpostform" display="none">
-        <legend>
-            <p class="postdate" id="date">TODAY</p>
-        </legend>
+        {% endif %}
 
-        <form action="/newpost" method="post">
-            {% csrf_token %}
-            <input type="text" name="title" id="title" value="title" placeholder="Title">
-            <textarea rows="7" name="content" id="content" value="content" placeholder="Your post here..."></textarea>
-            <input type="text" name="author" id="author" value="author" placeholder="Author"><input type="submit"
-                value="submit" />
-        </form>
-    </fieldset>
-
-
-    <div class="addnewpost">
-        <i class="fa fa-times" id='close'></i>
-        <i class="fa fa-check" id='addpost'></i>
+        {% endblock %}
     </div>
-    </div>
-
-    {% endif %}
-
-    {% endblock %}
     <script src="{% static 'SocialBoard/js/app.js' %}"></script>
 </body>
 

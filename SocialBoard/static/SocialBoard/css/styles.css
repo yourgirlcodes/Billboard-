@@ -22,22 +22,30 @@ div.login_block{
 
 body {
   font-family: "Roboto", sans-serif;
-
 }
 
-.new_post{
+
+#newpostform{
 display: none;
 }
 
+
 .posts{
     height: auto;
-    max-width: 800px;
     border: 3px solid #00b7ef;
     margin-bottom: 4%;
     padding-left: 3%;
     padding-right: 3%;
+    min-width: 800px;
 }
 
+.centered-elements{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+        width: 95vw;
+    min-width: 800px;
+}
 .postdate{
     font-family: 'Poiret One', cursive;
     font-size:16px;
@@ -56,6 +64,7 @@ display: none;
     font-size:16px;
     color: #c1bfc0;
 }
+
 .post_author{
     font-family: 'Pinyon Script', cursive;
     font-size:24px;
@@ -63,14 +72,31 @@ display: none;
     float: right;
 }
 
-#addpost{
+
+#ask_to_add, #addpost{
     background-color: #66CDAA;
     font-size: 16px;
     color: white;
     border-radius: 3px;
     padding: 2% 7%;
+    margin: 5px;
 }
 
+#plus{
+display: flex;
+justify-content: center;
+}
+
+
+.newpost_buttons{
+display: flex;
+width: 800px;
+justify-content: center;
+border: 1px dashed black;
+margin-bottom: 4%;
+padding-left: 3%;
+padding-right: 3%;
+}
 
 #close{
     background-color: red;
@@ -78,16 +104,14 @@ display: none;
     color: white;
     border-radius: 3px;
     padding: 2% 7%;
+    margin: 5px;
+    border-radius: 3px;
 }
 
-#addpost:hover, #close:hover{
-    cursor: pointer;
-}
+
+
+
 
 #ask_to_add{
-    background-color: #66CDAA;
-    font-size: 16px;
-    color: white;
-    border-radius: 3px;
-    padding: 2% 7%;
+
 }

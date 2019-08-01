@@ -1,30 +1,13 @@
 $(document).ready(function () {
     $("#ask_to_add").click(function () {
-        $("#newpostform").css("display", "block");
+    $("#newpostform").css("display", "block")
+    $("#plus").css("display", "none")
     });
 
     $("#close").click(function () {
-        $("#newpostform").css("display", "none");
+        $("#newpostform").css("display", "none")
+        $("#plus").css("display", "flex")
+        $("#ask_to_add").css("display", "inline-block")
     })
-
-    //    $("#addpost").click(function () {
-    //        $.ajax("/SocialBoard", {
-    //            type: "POST",
-    //            data: {
-    //                "content": $("#newcontent").val(),
-    //                "title": $("#newtitle").val(),
-    //                "author": $("#newauthor").val()
-    //            },
-    //            success: function (data) {
-    //                $("#posts").html(data + $("#posts").html())
-    //                $("#newtext").val(""),
-    //                $("#newtitle").val(""),
-    //                $("#newauthor").val("");
-    //            }
-    //        })
-    //    });
-
-
-
 
 })

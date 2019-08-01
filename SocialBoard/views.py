@@ -42,4 +42,4 @@ def newpost(request):
     author = request.POST.get("author")
     Post.objects.create(post_title=title, post_publish_date=timezone.now(), post_author=author, post_content=content)
     posts = Post.objects.all()
-    return render(request, 'SocialBoard/newpost.html', {'posts': posts})
+    return render(request, 'SocialBoard/index.html', {'posts': posts})

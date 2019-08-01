@@ -1,4 +1,7 @@
 {% extends 'SocialBoard/index.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'SocialBoard/css/styles.css' %}">
+
 {% block content %}
 <p>Already have an account?
     <a href="{% url 'login' %}">Login</a>
