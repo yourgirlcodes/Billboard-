@@ -129,10 +129,14 @@ a {
   cursor: pointer;
 }
 
+#ask_to_add{
+  animation: .8s infinite beat_animation;
+
+}
+
 #plus {
   display: flex;
   justify-content: center;
-  animation: .8s infinite beatHeart;
 }
 
 
@@ -190,5 +194,44 @@ legend .postdate {
     padding-right: 3%;
     min-width: 300px;
     width: 70vw;
+}
+
+@keyframes pulse_animation {
+	0% { transform: scale(1); }
+	30% { transform: scale(1); }
+	40% { transform: scale(1.08); }
+	50% { transform: scale(1); }
+	60% { transform: scale(1); }
+	70% { transform: scale(1.05); }
+	80% { transform: scale(1); }
+	100% { transform: scale(1); }
+}
+
+@keyframes beat_animation {
+	0% { transform: scale(1); }
+	20% { transform: scale(1); }
+	30% { transform: scale(1.08); }
+	40% { transform: scale(1); }
+	60% { transform: scale(1); }
+	70% { transform: scale(1.05); }
+	80% { transform: scale(1); }
+	100% { transform: scale(1); }
+}
+
+
+.pulse {
+	animation-name: pulse_animation;
+	animation-duration: 4000ms;
+	transform-origin:70% 70%;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+.beat:hover{
+animation-name: beat_animation;
+	animation-duration: 2000ms;
+	transform-origin:70% 70%;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
 }
 
