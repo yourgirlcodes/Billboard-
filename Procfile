@@ -1,0 +1,1 @@
+web: gunicorn AssignmentBillboard.wsgi --log-file -
