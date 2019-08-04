@@ -27,7 +27,7 @@ fieldset {
 input {
   margin: 4px;
   font-size: 16px;
-  font0family: arial;
+  font-family: arial;
 }
 
 textarea {
@@ -218,20 +218,4 @@ legend .postdate {
 	100% { transform: scale(1); }
 }
 
-
-.pulse {
-	animation-name: pulse_animation;
-	animation-duration: 4000ms;
-	transform-origin:70% 70%;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-}
-
-.beat:hover{
-animation-name: beat_animation;
-	animation-duration: 2000ms;
-	transform-origin:70% 70%;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-}
 
